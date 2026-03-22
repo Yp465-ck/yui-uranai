@@ -50,12 +50,13 @@
         url(images/hero-mystic.png);
       background-size: cover;
       background-position: center;
+      background-attachment: scroll;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(22,10,38,0.92) 0%, rgba(38,18,58,0.85) 40%, rgba(26,12,42,0.9) 100%);
+      background: linear-gradient(180deg, rgba(16,6,30,0.95) 0%, rgba(28,12,48,0.92) 40%, rgba(18,8,34,0.94) 100%);
       z-index: 1;
     }
     .hero::after {
@@ -256,7 +257,14 @@
     .plan-type-chat { background: rgba(168,139,194,0.12); color: var(--purple-mid); }
     .plan-type-zoom { background: rgba(201,168,76,0.12); color: var(--gold); }
     .plan-limited { display: inline-block; font-size: 0.68rem; padding: 3px 9px; border-radius: 999px; background: rgba(212,160,185,0.15); color: var(--pink-accent); font-weight: 500; letter-spacing: 0.03em; margin-left: 4px; }
-    .plan-card.zoom-card { background: linear-gradient(180deg, #f9f5ff, #f3edf8); border-color: rgba(126,92,160,0.2); }
+    .plan-card.zoom-card { background: linear-gradient(180deg, #2a1b3d, #3d2555); border: 1.5px solid rgba(201,168,76,0.3); box-shadow: 0 4px 24px rgba(42,27,61,0.18); }
+    .plan-card.zoom-card .plan-title { color: #fff; }
+    .plan-card.zoom-card .plan-price { background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .plan-card.zoom-card .plan-desc { color: rgba(255,255,255,0.8); }
+    .plan-card.zoom-card .plan-features { color: rgba(255,255,255,0.85); }
+    .plan-card.zoom-card .plan-features strong { color: var(--gold-light); }
+    .plan-card.zoom-card .plan-note { color: var(--gold-light); }
+    .plan-card.zoom-card .plan-divider { background: rgba(201,168,76,0.2); }
     .plan-title { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 600; color: var(--purple-deep); margin-bottom: 4px; letter-spacing: 0.04em; }
     .plan-price { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, var(--purple-mid), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .plan-desc { font-size: 0.86rem; margin-bottom: 10px; color: var(--text-muted); text-align: center; line-height: 1.7; }
@@ -549,7 +557,7 @@
         <h2>自分の人生の地図を<br>知りたいと感じた方へ</h2>
         <p style="color:rgba(255,255,255,0.88);margin-bottom:20px;">手相は未来を当てるものではなく、これからの方向性を知るための人生の地図。迷いがあるときほど、地図があることで安心して前に進めるようになります。</p>
         <p style="color:var(--gold-light);font-size:0.88rem;margin-bottom:24px;">今が鑑定を受けるベストなタイミングです。<br>興味がある、気になるという方は、ぜひ一度気になる鑑定プランについてご相談ください。</p>
-        <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem;padding:16px 40px;">鑑定について相談する</a>
+        <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem;padding:16px 40px;">鑑定について相談してみる</a>
       </div>
     </section>
 
@@ -557,7 +565,7 @@
   </main>
 
   <div class="fixed-cta">
-    <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line">鑑定について相談する</a>
+    <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line">鑑定について相談してみる</a>
   </div>
 </body>
 </html>

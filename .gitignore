@@ -2,3 +2,4 @@
 *.log
 .env
 .env.local
+deploy-kantei-menu.zip
