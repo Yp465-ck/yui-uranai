@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>手相鑑定｜望月ゆい - 手相は人生の地図</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-dark: #2a1b3d;
+      --purple-deep: #3d2555;
+      --purple-mid: #5c3d7a;
+      --purple-soft: #7e5ca0;
+      --lavender: #a88bc2;
+      --pink-accent: #d4a0b9;
+      --pink-light: #f0e4ee;
+      --gold: #c9a84c;
+      --gold-light: #e8d48a;
+      --gold-warm: #d4b062;
+      --text: #3d3d3d;
+      --text-muted: #666;
+      --bg-body: #f3edf5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--text);
+      line-height: 1.85;
+      background: var(--bg-body);
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--purple-dark);
+      background-image:
+        radial-gradient(ellipse 50% 50% at 50% 60%, rgba(92, 61, 122, 0.5) 0%, transparent 70%),
+        url(images/hero-mystic.png);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(22,10,38,0.92) 0%, rgba(38,18,58,0.85) 40%, rgba(26,12,42,0.9) 100%);
+      z-index: 1;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 18% 12%, rgba(232,212,138,0.7), transparent),
+        radial-gradient(2px 2px at 82% 18%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 45% 75%, rgba(212,160,185,0.6), transparent),
+        radial-gradient(2px 2px at 72% 65%, rgba(201,168,76,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 28% 50%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 88% 82%, rgba(232,212,138,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 55% 30%, rgba(212,160,185,0.4), transparent),
+        radial-gradient(1px 1px at 8% 70%, rgba(201,168,76,0.4), transparent);
+      animation: twinkle 5s ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%,100% { opacity: 0.5; } 50% { opacity: 0.9; } }
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      color: #fff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero-sub {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    .hero h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(201,168,76,0.35), 0 0 60px rgba(92,61,122,0.4);
+    }
+    @media (min-width: 768px) { .hero h1 { font-size: 2.1rem; } }
+    .hero-lead {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 2;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 20px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    }
+    .hero-recommend-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .hero-list {
+      list-style: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 24px;
+      display: inline-block;
+      text-align: left;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    }
+    .hero-list li { margin-bottom: 5px; padding-left: 1.2em; position: relative; }
+    .hero-list li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.7em; top: 0.35em; }
+    .hero-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+      margin: 0 auto 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, var(--purple-mid), var(--purple-soft));
+      color: #fff !important;
+      text-decoration: none;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 24px rgba(42,27,61,0.4);
+    }
+    .btn:hover { box-shadow: 0 6px 32px rgba(42,27,61,0.55); transform: translateY(-1px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-warm)) !important; border-color: rgba(255,255,255,0.2) !important; box-shadow: 0 4px 20px rgba(201,168,76,0.35) !important; }
+    .btn-line { background: linear-gradient(135deg, #06C755, #05a847) !important; border-color: rgba(255,255,255,0.15) !important; box-shadow: 0 4px 16px rgba(6,199,85,0.35) !important; }
+
+    /* ─── Sections ─── */
+    section { padding: 36px 0; text-align: center; }
+    @media (min-width: 768px) { section { padding: 48px 0; } }
+    .section-divider { width: 32px; height: 1px; background: linear-gradient(90deg, transparent, var(--lavender), transparent); margin: 0 auto 24px; }
+    h2 { font-family: 'Shippori Mincho', serif; font-size: 1.25rem; font-weight: 600; color: var(--purple-deep); margin-bottom: 6px; letter-spacing: 0.06em; }
+    @media (min-width: 768px) { h2 { font-size: 1.4rem; } }
+    .section-sub { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--lavender); margin-bottom: 20px; }
+    p { margin-bottom: 12px; font-size: 0.92rem; text-align: center; }
+
+    /* ─── About ─── */
+    .about-inner { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    @media (min-width: 768px) { .about-inner { flex-direction: row; text-align: left; gap: 32px; } }
+    @media (min-width: 768px) { .about-inner p { text-align: left; } }
+    .about-img {
+      width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+      border: 3px solid transparent;
+      background-image: linear-gradient(#fff,#fff), linear-gradient(135deg, var(--lavender), var(--gold-light));
+      background-origin: border-box; background-clip: content-box, border-box;
+      flex-shrink: 0; box-shadow: 0 4px 24px rgba(92,61,122,0.15);
+    }
+    @media (min-width: 768px) { .about-img { width: 160px; height: 160px; } }
+    .about-tag { font-size: 0.82rem; color: var(--purple-soft); margin-bottom: 12px; letter-spacing: 0.03em; line-height: 1.7; }
+
+    /* ─── Lists ─── */
+    ul.check-list { list-style: none; display: inline-block; text-align: left; }
+    ul.check-list li { position: relative; padding-left: 1.3em; margin-bottom: 8px; font-size: 0.92rem; }
+    ul.check-list li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.75em; top: 0.35em; }
+
+    /* ─── Recommend section ─── */
+    .recommend-section {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-deep) 50%, #2e1a45 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .recommend-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 15% 20%, rgba(232,212,138,0.5), transparent),
+        radial-gradient(1px 1px at 80% 35%, rgba(255,255,255,0.35), transparent),
+        radial-gradient(1px 1px at 50% 80%, rgba(212,160,185,0.4), transparent),
+        radial-gradient(1.5px 1.5px at 90% 70%, rgba(201,168,76,0.4), transparent);
+      animation: twinkle 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .recommend-section .section-divider { background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+    .recommend-section h2 { color: #fff; }
+    .recommend-section .section-sub { color: var(--gold-light); }
+    .recommend-section .container { text-align: center; }
+    .recommend-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .recommend-list { max-width: 620px; gap: 12px; margin: 0 auto; }
+    }
+    .recommend-list li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.93);
+      text-align: center;
+    }
+    .recommend-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .recommend-note {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      line-height: 1.8;
+      opacity: 0.88;
+      text-align: center;
+    }
+
+    /* ─── Plan cards ─── */
+    .plan-cards { display: flex; flex-direction: column; gap: 16px; }
+    .plan-card { background: #fff; border-radius: 14px; padding: 24px 20px; border: 1px solid rgba(168,139,194,0.15); box-shadow: 0 2px 16px rgba(92,61,122,0.06); text-align: center; }
+    .plan-card.popular { border: 2px solid var(--gold-warm); background: linear-gradient(180deg,#fffdf5,#fff); box-shadow: 0 4px 32px rgba(201,168,76,0.15); }
+    .plan-badge { display: inline-block; font-size: 0.7rem; padding: 4px 14px; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); color: #fff; border-radius: 999px; margin-bottom: 10px; font-family: 'Shippori Mincho', serif; font-weight: 600; letter-spacing: 0.06em; box-shadow: 0 2px 10px rgba(201,168,76,0.3); }
+    .plan-type { display: inline-block; font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; font-weight: 500; letter-spacing: 0.04em; }
+    .plan-type-chat { background: rgba(168,139,194,0.12); color: var(--purple-mid); }
+    .plan-type-zoom { background: rgba(201,168,76,0.12); color: var(--gold); }
+    .plan-limited { display: inline-block; font-size: 0.68rem; padding: 3px 9px; border-radius: 999px; background: rgba(212,160,185,0.15); color: var(--pink-accent); font-weight: 500; letter-spacing: 0.03em; margin-left: 4px; }
+    .plan-card.zoom-card { background: linear-gradient(180deg, #f9f5ff, #f3edf8); border-color: rgba(126,92,160,0.2); }
+    .plan-title { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 600; color: var(--purple-deep); margin-bottom: 4px; letter-spacing: 0.04em; }
+    .plan-price { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, var(--purple-mid), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .plan-desc { font-size: 0.86rem; margin-bottom: 10px; color: var(--text-muted); text-align: center; line-height: 1.7; }
+    .plan-features { font-size: 0.82rem; margin-bottom: 8px; text-align: left; line-height: 1.7; }
+    .plan-features strong { color: var(--purple-mid); display: block; margin-bottom: 4px; text-align: center; }
+    .plan-features span { display: block; padding-left: 1em; position: relative; }
+    .plan-features span::before { content: '・'; position: absolute; left: 0; }
+    .plan-note { font-size: 0.78rem; color: var(--purple-soft); margin-top: 10px; text-align: center; }
+    .plan-divider { width: 100%; height: 1px; background: rgba(168,139,194,0.12); margin: 10px 0; }
+
+    /* ─── Voice carousel ─── */
+    .voice-scroll { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 4px 20px 16px; scroll-padding-left: 20px; scrollbar-width: none; }
+    .voice-scroll::-webkit-scrollbar { display: none; }
+    .voice-card { flex: 0 0 280px; scroll-snap-align: start; background: #fff; border-radius: 14px; padding: 20px; border: 1px solid rgba(168,139,194,0.12); box-shadow: 0 2px 16px rgba(92,61,122,0.06); text-align: left; }
+    .voice-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .voice-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--pink-accent)); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #fff; flex-shrink: 0; }
+    .voice-info { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .voice-info strong { display: block; font-size: 0.82rem; color: var(--purple-deep); }
+    .voice-stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 8px; }
+    .voice-body { font-size: 0.84rem; line-height: 1.75; color: var(--text); text-align: left; }
+    .voice-hint { font-size: 0.75rem; color: var(--lavender); margin-top: 12px; text-align: center; }
+
+    /* ─── Flow ─── */
+    .flow-steps { display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; }
+    .flow-step { display: flex; gap: 14px; align-items: center; padding: 14px 16px; background: rgba(255,255,255,0.7); border-radius: 10px; text-align: left; }
+    .flow-num { width: 30px; height: 30px; background: linear-gradient(135deg, var(--purple-mid), var(--purple-soft)); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+    .flow-step p { margin: 0; font-size: 0.9rem; text-align: left; }
+
+    /* ─── Payment ─── */
+    .payment-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .payment-list span { padding: 8px 18px; background: rgba(255,255,255,0.8); border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(168,139,194,0.12); }
+
+    /* ─── Fixed CTA ─── */
+    .fixed-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 12px 16px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+      background: linear-gradient(180deg, #f5eff7 0%, #efe8f0 100%);
+      box-shadow: 0 -4px 20px rgba(42,27,61,0.12);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .fixed-cta .btn { width: 100%; max-width: 320px; text-align: center; }
+    .bottom-spacer { height: 68px; }
+
+    /* ─── CTA section ─── */
+    .cta-section { background: linear-gradient(135deg, var(--purple-dark), var(--purple-deep)); padding: 40px 0; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 25% 30%, rgba(232,212,138,0.4), transparent), radial-gradient(1px 1px at 75% 60%, rgba(212,160,185,0.4), transparent); pointer-events: none; }
+    .cta-section h2 { color: #fff; }
+    .cta-section p { color: rgba(255,255,255,0.9); }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- ═══ Hero ═══ -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-sub">PALM READING</p>
+        <h1>手相は、人生の地図です</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-lead">手相を中心に、占星術・九星気学・タロットを組み合わせ、あなたの使命・才能・運の流れを読み解きます。これからの人生の方向性を、一緒に明確にしていきましょう。</p>
+        <p class="hero-recommend-label">こんな方におすすめです</p>
+        <ul class="hero-list">
+          <li>自分の才能や可能性を知りたい</li>
+          <li>これからの方向性を整理したい</li>
+          <li>手相を一度じっくり見てもらいたい</li>
+          <li>仕事・恋愛・金運を総合的に知りたい</li>
+          <li>今の自分に必要なヒントがほしい</li>
+        </ul>
+        <a href="#plans" class="btn btn-gold">鑑定プランを見る</a>
+      </div>
+    </section>
+
+    <!-- ═══ About ═══ -->
+    <section id="about">
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>望月ゆいとは</h2>
+        <p class="section-sub">ABOUT</p>
+        <div class="about-inner">
+          <img src="images/profile.png" alt="望月ゆい" class="about-img">
+          <div class="about-text">
+            <p class="about-tag">開運手相占い師／スピリチュアリスト<br>占い歴11年・累計鑑定数5,000件以上</p>
+            <p>慶應義塾大学在学中より、著名人を多数鑑定する手相家に師事。以来11年にわたり5,000人以上の方の人生の転機や方向性をサポートしてきました。</p>
+            <p>現在は手相を軸に占星術・九星気学・タロットを組み合わせ、お一人おひとりに必要な方向性を丁寧に読み解く鑑定を行っています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 手相とは（統合セクション） ═══ -->
+    <section>
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>手相は「今のあなた」を映す地図</h2>
+        <p class="section-sub">YOUR LIFE MAP</p>
+        <p>手相は生まれつき決まっているものではありません。あなたの考え方や選択によって少しずつ変わっていくものです。つまり手相には「これまでの歩み」と「これからの可能性」の両方が刻まれています。</p>
+        <p>生年月日の占いが生まれ持った性質を映し出すのに対し、手相には今の状態やこれからの変化の兆しが表れます。だからこそ、方向性を整理するための手がかりとして大きな力を持っています。</p>
+        <p>この鑑定では手相を中心に、占星術・九星気学・タロットを補助的に組み合わせながら、あなたに今必要な方向性をより立体的に整理していきます。</p>
+      </div>
+    </section>
+
+    <!-- ═══ 鑑定を受けた方の声 ═══ -->
+    <section>
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>鑑定を受けた方の声</h2>
+        <p class="section-sub">VOICE</p>
+      </div>
+      <div class="voice-scroll">
+        <div class="voice-card">
+          <div class="voice-meta">
+            <span class="voice-avatar">A</span>
+            <div class="voice-info"><strong>A.S さん</strong>30代 女性・会社員</div>
+          </div>
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-body">自分に何が向いているのかずっと分からなくて、モヤモヤした日々を過ごしていました。鑑定を受けて、自分の才能や強みを言語化してもらえたことで「これでいいんだ」と思えるようになり、自己肯定感がすごく上がりました。</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-meta">
+            <span class="voice-avatar">T</span>
+            <div class="voice-info"><strong>T.K さん</strong>50代 男性・経営者</div>
+          </div>
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-body">経営判断に迷っていたタイミングで鑑定を受けました。手相から読み取れる運気の流れと転機のタイミングを具体的に教えていただき、事業の方向性を自信を持って決断できました。経営者にこそおすすめしたい鑑定です。</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-meta">
+            <span class="voice-avatar">M</span>
+            <div class="voice-info"><strong>M.H さん</strong>40代 女性・主婦</div>
+          </div>
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-body">子育てが一段落し、これからの自分の人生をどう生きたいのか分からなくなっていました。鑑定で使命や才能を丁寧に読み解いていただき、やりたいことが見つかって、毎日がワクワクするものに変わりました。</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-meta">
+            <span class="voice-avatar">Y</span>
+            <div class="voice-info"><strong>Y.N さん</strong>20代 女性・フリーランス</div>
+          </div>
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-body">占い自体が初めてで緊張していましたが、とても丁寧に説明していただけて安心しました。自分では気づいていなかった才能を教えてもらい、仕事の方向性も整理できて、人間関係も前向きに捉えられるようになりました。</p>
+        </div>
+      </div>
+      <div class="container">
+        <p class="voice-hint">← スワイプで他の声も見られます</p>
+      </div>
+    </section>
+
+    <!-- ═══ おすすめ＋鑑定内容（統合） ═══ -->
+    <section class="recommend-section">
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>こんな方に選ばれています</h2>
+        <p class="section-sub">FOR YOU</p>
+        <ul class="recommend-list">
+          <li>自分に向いていることを知りたい</li>
+          <li>才能や可能性をもっと引き出したい</li>
+          <li>これからの方向性を整理したい</li>
+          <li>恋愛や人間関係のヒントがほしい</li>
+          <li>手相を一度じっくり見てもらいたい</li>
+        </ul>
+        <p class="recommend-note">使命・才能・性格・仕事運・金運・恋愛運・人生の流れ・転機のタイミングなど、ご相談内容に合わせて丁寧に鑑定いたします。</p>
+      </div>
+    </section>
+
+    <!-- ═══ 鑑定プラン ═══ -->
+    <section id="plans">
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>鑑定プラン</h2>
+        <p class="section-sub">PLANS</p>
+
+        <div class="plan-cards">
+          <!-- ライト -->
+          <div class="plan-card">
+            <span class="plan-type plan-type-chat">チャット鑑定</span>
+            <div class="plan-title">ライト手相鑑定</div>
+            <div class="plan-price">4,980円</div>
+            <p class="plan-desc">使命・才能・仕事運・金運・恋愛運・人間関係運の中から気になるテーマを1つ選んで読み解く入門鑑定です。</p>
+            <div class="plan-divider"></div>
+            <p class="plan-features">
+              <strong>こんな方におすすめ</strong>
+              <span>まずは手相鑑定を体験してみたい</span>
+              <span>相談内容が1つに決まっている</span>
+              <span>気になる線の意味を知りたい</span>
+            </p>
+          </div>
+
+          <!-- プラチナ -->
+          <div class="plan-card popular">
+            <span class="plan-badge">人気No.1</span>
+            <span class="plan-type plan-type-chat">チャット鑑定</span>
+            <div class="plan-title">プラチナ手相鑑定</div>
+            <div class="plan-price">9,800円</div>
+            <p class="plan-desc">使命・才能・運気の流れを総合的に読み解く標準鑑定。才能・性格・仕事運・金運・恋愛運・人生の流れまで立体的に紐解きます。</p>
+            <div class="plan-divider"></div>
+            <p class="plan-features">
+              <strong>こんな方におすすめ</strong>
+              <span>自分の才能や方向性を知りたい</span>
+              <span>仕事や恋愛について深く相談したい</span>
+              <span>本格的な鑑定を受けてみたい</span>
+            </p>
+            <p class="plan-note">はじめての方にもっとも選ばれているプランです</p>
+          </div>
+
+          <!-- プレミアム -->
+          <div class="plan-card">
+            <span class="plan-type plan-type-chat">チャット鑑定</span>
+            <div class="plan-title">プレミアム総合鑑定</div>
+            <div class="plan-price">29,800円</div>
+            <p class="plan-desc">手相に加え、西洋占星術・タロットを組み合わせた特別鑑定。使命から相性まで多角的に読み解きます。</p>
+            <div class="plan-divider"></div>
+            <p class="plan-features">
+              <strong>こんな方におすすめ</strong>
+              <span>人生全体を深く知りたい</span>
+              <span>複数テーマをまとめて整理したい</span>
+              <span>重要な選択の前に方向性を明確にしたい</span>
+            </p>
+          </div>
+
+          <!-- Zoomセッション -->
+          <div class="plan-card zoom-card">
+            <span class="plan-type plan-type-zoom">Zoom対話セッション</span><span class="plan-limited">少人数限定</span>
+            <div class="plan-title">人生の地図セッション</div>
+            <div class="plan-price">30分 15,800円 / 60分 29,800円</div>
+            <p class="plan-desc">リアルタイムで対話しながら、使命・才能・人生の転機・方向性を深く整理する完全個別セッションです。</p>
+            <div class="plan-divider"></div>
+            <p class="plan-features">
+              <strong>こんな方におすすめ</strong>
+              <span>人生の方向性を明確にしたい</span>
+              <span>重要な決断を控えている</span>
+              <span>今が転機だと感じている</span>
+            </p>
+            <p class="plan-note">※毎月25日〜月末の期間限定募集</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 鑑定の流れ ═══ -->
+    <section>
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>鑑定の流れ</h2>
+        <p class="section-sub">FLOW</p>
+        <div class="flow-steps">
+          <div class="flow-step"><span class="flow-num">1</span><p>ご希望のプランを選び、公式LINEでお知らせください</p></div>
+          <div class="flow-step"><span class="flow-num">2</span><p>お支払い（クレジットカード・PayPay・銀行振込）</p></div>
+          <div class="flow-step"><span class="flow-num">3</span><p>手相写真・生年月日・ご相談内容をLINEで送付</p></div>
+          <div class="flow-step"><span class="flow-num">4</span><p>公式LINEにて鑑定結果をお届け（鑑定後1往復までご質問対応）</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ お支払い ═══ -->
+    <section>
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>お支払い方法</h2>
+        <p class="section-sub">PAYMENT</p>
+        <div class="payment-list">
+          <span>クレジットカード</span>
+          <span>PayPay</span>
+          <span>銀行振込</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ はじめての方へ ═══ -->
+    <section>
+      <div class="container">
+        <div class="section-divider"></div>
+        <h2>はじめて鑑定を受ける方へ</h2>
+        <p class="section-sub">FIRST TIME</p>
+        <p>「どんなことを言われるのだろう」「自分に合っているかな」。はじめての方がそう感じるのは自然なことです。</p>
+        <p>この鑑定では良い・悪いを判定するのではなく、才能・使命・運の流れを丁寧に整理しながら、これからどう進めばいいのかを一緒に見つけていきます。どうぞ安心してご相談ください。</p>
+      </div>
+    </section>
+
+    <!-- ═══ 締め＋CTA ═══ -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="section-divider" style="background:linear-gradient(90deg,transparent,var(--gold-light),transparent);"></div>
+        <h2>自分の人生の地図を<br>知りたいと感じた方へ</h2>
+        <p style="color:rgba(255,255,255,0.88);margin-bottom:20px;">手相は未来を当てるものではなく、これからの方向性を知るための人生の地図。迷いがあるときほど、地図があることで安心して前に進めるようになります。</p>
+        <p style="color:var(--gold-light);font-size:0.88rem;margin-bottom:24px;">今が鑑定を受けるベストなタイミングです。<br>興味がある、気になるという方は、ぜひ一度気になる鑑定プランについてご相談ください。</p>
+        <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem;padding:16px 40px;">鑑定について相談する</a>
+      </div>
+    </section>
+
+    <div class="bottom-spacer"></div>
+  </main>
+
+  <div class="fixed-cta">
+    <a href="https://lin.ee/pcoDa57" target="_blank" rel="noopener noreferrer" class="btn btn-line">鑑定について相談する</a>
+  </div>
+</body>
+</html>
